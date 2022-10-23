@@ -1,11 +1,13 @@
-// No need for import React from "react"; anymore
+// No need to import React from "react"; anymore
 
 import { useState } from "react";
 import SearchBar from "./components/SearchBar";
 import LocationBox from "./components/LocationBox";
 import WeatherBox from "./components/WeatherBox";
 
-function App() {
+const App = () => {
+// or
+// function App() {
     const [weather, setWeather] = useState({});
 
     const searchCallback = (jsonWeatherInfo) => {
@@ -22,7 +24,7 @@ function App() {
                 <main>
                     <SearchBar searchCallback={searchCallback} />
                     {(typeof weather.main != "undefined") ? (
-                        <div>
+                        <div className="info-margin-top">
                             <LocationBox city={weather.name} country={weather.sys.country} />
                             <WeatherBox temp={weather.main.temp} weatherMain={weather.weather[0].main} />
                         </div>
